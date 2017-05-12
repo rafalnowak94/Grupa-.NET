@@ -1,4 +1,4 @@
 Chat Web application using ASP.NET MVC
 
 Author:
-Rafa≥ Nowak rafalnowak1994@gmail.com
+Rafa≈Ç Nowak rafalnowak1994@gmail.com
