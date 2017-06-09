@@ -1,4 +1,19 @@
-Chat Web application using ASP.NET MVC
+-->OLD SUBJECT<--
+"Chat Web application using ASP.NET MVC"
+
+-->NEW SUBJECT<--
+"Clothes store with ASP.NET MVC + Database" 
+
+I want to change the subject of project to features increase.
+
+The project will contain:
+- Navbar
+- Division for categories
+- Sing Up/In system
+- Admin panel (add/delete/edit items, change status of orders)
+- Basket
+- Search engine
 
 Author:
-Rafał Nowak rafalnowak1994@gmail.com
+Rafał Nowak 
+rafalnowak1994@gmail.com
