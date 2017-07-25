@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="../Content/bootstrap.css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div classs="row">
+            <img class="center-block" src="@Url.Content("~/Content/Images/logo.png")" />
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-static-top container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Rozwiń nawigację</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"></ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="#">Polecamy</a></li>
+                    <li><a href="#">Produkty</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: #f5f5f5;">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container" style="background-color:#222222; color:white">
+            <div class="row Myfooter">
+                <div class="col-md-4 text-center">
+                    <h5>FIRMA</h5>
+                    <a href="#">O nas</a><br />
+                    <a href="#">Regulamin</a><br />
+                    <a href="#">Wysyłka</a><br />
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>KONTAKT</h5>
+                    <a href="mailto:info@januszshop.pl">info@januszshop.pl </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>ADRES</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+</body>
+</html>
