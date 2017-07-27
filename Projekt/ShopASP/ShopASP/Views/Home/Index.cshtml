@@ -1,4 +1,4 @@
-﻿
+﻿@model ShopASP.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Index2";
 }
@@ -6,92 +6,36 @@
 <div classs="row">
     <img class="img-responsive" src="../Content/Images/janusz.png" />
 </div>
+
+<h2>Nowości</h2>
 <hr />
-<h1>Polecamy</h1>
 <div class="row">
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="newFlag"></div>
-        <div class="thumbnail">
+    @foreach (var newItem in Model.NewItems)
+    {
+        <div style="position: relative" class="col-sm-4 col-lg-4 col-md-4">
+            <a href="@Url.Action("Description", "Shop", new { id = newItem.ItemId })">
+                <div class="thumbnail">
+                    <div class="itemPhoto">
+                        <div class="newFlag"></div>
+                        <img class="center-block img-responsive" src="@Url.ItemPhotoPath(newItem.ImageFileName)" />
+                    </div>
 
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
+                    <div class="caption">
+                        <h4 class="pull-right">@newItem.Price</h4>
+                        <h4>
+                            @newItem.Title
+                        </h4>
 
+                        <div class="addCartButton">
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = newItem.ItemId })" type="button" class="btn btn-default">
+                                Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="newFlag"></div>
-        <div class="thumbnail">
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    }
 
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <div class="newFlag"></div>
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <div class="bestsellerFlag"></div>
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <div class="bestsellerFlag"></div>
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <div class="bestsellerFlag"></div>
-            <img src="../Content/Images/test.jpg" />
-            <div class="caption">
-                <h4 class="pull-right">$94.99</h4>
-                <h4>
-                    <a href="#">Fifth Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-        </div>
-    </div>
 
 </div>

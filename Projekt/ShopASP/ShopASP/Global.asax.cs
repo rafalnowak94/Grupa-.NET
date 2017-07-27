@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ShopASP.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,8 @@ namespace ShopASP
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Database.SetInitializer<ShopContext>(new ShopInitializer());
         }
     }
 }

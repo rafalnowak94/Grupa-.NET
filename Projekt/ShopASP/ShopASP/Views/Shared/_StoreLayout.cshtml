@@ -14,8 +14,10 @@
 </head>
 <body>
     <div class="container">
-        <div classs="row">
-            <img class="center-block" src="@Url.Content("~/Content/Images/logo.png")" />
+        <div classs="row text-center">
+            <a href="@Url.Content("~/")">
+            <img src="@Url.Content("~/Content/Images/logo.png")" />
+            </a>
         </div>
     </div>
 
@@ -51,9 +53,9 @@
             <div class="row Myfooter">
                 <div class="col-md-4 text-center">
                     <h5>FIRMA</h5>
-                    <a href="#">O nas</a><br />
-                    <a href="#">Regulamin</a><br />
-                    <a href="#">Wysyłka</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="onas"})">O nas</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="regulamin"})">Regulamin</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="wysylka"})">Wysyłka</a><br />
                 </div>
                 <div class="col-md-4 text-center">
                     <h5>KONTAKT</h5>
