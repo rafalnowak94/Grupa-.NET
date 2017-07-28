@@ -25,7 +25,6 @@ namespace ShopASP.Controllers
 
             return View(vm);
         }
-
         public ActionResult StaticPage(string page)
         {
             return View(page);

@@ -13,12 +13,19 @@ namespace ShopASP.Controllers
         // GET: Shop
         public ActionResult Description(int id)
         {
-            return View();
+            var item = db.Items.Find(id);
+            return View(item);
         }
-        public ActionResult List(string categoryname)
+        public ActionResult List(string categoryname, string searchQuery = null)
         {
             var category = db.Categories.Include("Items").Where(g => g.Name.ToLower() == categoryname.ToLower()).Single();
-            var items = category.Items.ToList();
+            var items = category.Items.Where(a=> (searchQuery ==null ||
+                                              a.Title.ToLower().Contains(searchQuery.ToLower()))&&
+                                              !a.IsHidden);
+            if(Request.IsAjaxRequest())
+            {
+                return PartialView("_ItemsList", items);
+            }
             return View(items);
         }
 
@@ -27,6 +34,14 @@ namespace ShopASP.Controllers
         {
             var categories = db.Categories.ToList();
             return PartialView("_CategoriesMenu",categories);
+        }
+
+        public ActionResult ItemsSuggestions(string term)
+        {
+            var items = db.Items.Where(a => !a.IsHidden && a.Title.ToLower().Contains(term.ToLower()))
+                  .Take(8).Select(a => new { label = a.Title });
+
+            return Json(items, JsonRequestBehavior.AllowGet);
         }
     }
 }

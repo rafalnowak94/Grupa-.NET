@@ -41,7 +41,6 @@ C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Webpage
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Webpages.Razor.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Helpers.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Mvc.xml
-C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.csprojResolveAssemblyReference.cache
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.pdb
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Glimpse.AspNet.dll
@@ -51,3 +50,16 @@ C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.dl
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.SqlServer.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.SqlServer.xml
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\WebActivatorEx.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.xml
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.WebActivator.xml
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.csprojResolveAssemblyReference.cache
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Antlr3.Runtime.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Newtonsoft.Json.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Optimization.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\WebGrease.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Antlr3.Runtime.pdb
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Newtonsoft.Json.xml
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Optimization.xml

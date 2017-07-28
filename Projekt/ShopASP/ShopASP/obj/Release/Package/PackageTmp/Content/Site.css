@@ -1,0 +1,62 @@
+﻿
+body {
+    background-color: #eeeeee;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav.navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+}
+
+.navbar-default {
+    background-color: white;
+    margin-bottom: 0px;
+}
+.thumbnail {
+       padding: 0px 0px 0px 0px;
+}
+.thumbnail a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.itemPhoto:hover{
+  opacity:0.6;
+  transition: opacity .9s ease-out;
+  -moz-transition: opacity .9s ease-out;
+  -webkit-transition: opacity .9s ease-out;
+  -o-transition: opacity .9s ease-out;
+}
+div.addCartButton {
+    text-align: right;
+}
+
+div.newFlag {
+    background-image: url('../Content/Images/new.png');
+    background-repeat: no-repeat;
+    width: 101px;
+    height: 101px;
+    position: absolute;
+}
+
+div.bestsellerFlag {
+    background-image: url('../Content/Images/bestseller.png');
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.Myfooter {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.categoryItem {
+    padding: 0px 0px 0px 0px;
+}
+

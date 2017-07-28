@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ShopContext-Web.config Connection String" description="ShopContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=JanuszShopDb;Integrated Security=SSPI; AttachDBFilename=|DataDirectory|\JanuszShopsDb.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\rafal\\Desktop\\Grupa\ \.NET\\Projekt\\ShopASP\\ShopASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ShopContext']/@connectionString" />
+  </parameter>
+</parameters>
