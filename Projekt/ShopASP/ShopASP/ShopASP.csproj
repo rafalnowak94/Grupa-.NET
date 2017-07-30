@@ -251,7 +251,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\ShopContext.cs" />
@@ -265,7 +266,9 @@
     <Compile Include="Infastructure\UrlHelpers.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Size.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\BasketRemoveViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -291,7 +294,7 @@
     <Content Include="Views\Home\Onas.cshtml" />
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Wysylka.cshtml" />
-    <Content Include="Views\Shop\_CategoriesMenu.cshtml" />
+    <Content Include="Views\Shop\_CategoriesMenuFull.cshtml" />
     <Content Include="Views\Shop\List.cshtml" />
     <Content Include="Views\Shop\_ItemsList.cshtml" />
     <Content Include="Views\Shop\Description.cshtml" />
@@ -305,7 +308,10 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
     <Content Include="Views\Index.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Basket\Index.cshtml" />
+    <Content Include="Views\Home\_CategoriesMenu.cshtml" />
+    <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

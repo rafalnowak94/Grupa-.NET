@@ -15,7 +15,7 @@ namespace ShopASP
 
             routes.MapRoute(
               name: "ItemDescription",
-              url: "i{id}",
+              url: "produkt/i{id}",
               defaults: new { controller = "Shop", action = "Description" }
           );
 
@@ -28,7 +28,7 @@ namespace ShopASP
 
             routes.MapRoute(
             name: "StaticPages",
-            url: "{page}",
+            url: "firma/{page}",
             defaults: new { controller = "Home", action = "StaticPage" }
           );
             routes.MapRoute(

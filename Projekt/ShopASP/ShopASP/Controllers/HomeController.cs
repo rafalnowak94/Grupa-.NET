@@ -29,5 +29,12 @@ namespace ShopASP.Controllers
         {
             return View(page);
         }
+
+        [ChildActionOnly]
+        public ActionResult GenerateCategoriesMenu()
+        {
+            var categories = db.Categories.ToList();
+            return PartialView("_CategoriesMenu", categories);
+        }
     }
 }

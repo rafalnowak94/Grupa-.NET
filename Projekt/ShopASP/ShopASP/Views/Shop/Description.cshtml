@@ -6,8 +6,8 @@
 }
 
 <div class="row" style="margin-top: 30px;">
-    <div class="col-md-2" style="border-right: 2px solid #cacaca">
-        @Html.Action("GenerateCategoriesMenu")
+    <div class="col-md-2">
+        @Html.Action("GenerateCategoriesMenuFull")
     </div>
     <div class="col-md-10">
         <div class="row" style="padding:5px 0 10px 15px">
@@ -23,7 +23,7 @@
             <div class="col-md-3" style="border:1px solid #c3c0c0; padding-bottom:10px">
                 <h3>@String.Format("{0:0.##}", Model.Price)<span>PLN</span></h3>
                 <hr />
-                <a href="@Url.Action("AddToCart", "Cart", new { id = Model.ItemId})" type="button" class="btn btn-primary top-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Dodaj do koszyka</a>
+                <a href="@Url.Action("AddToBasket", "Basket", new { id = Model.ItemId})" type="button" class="btn btn-primary top-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Dodaj do koszyka</a>
             </div>
 
         </div>

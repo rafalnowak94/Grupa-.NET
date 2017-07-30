@@ -30,8 +30,8 @@ namespace ShopASP.DAL
 
             var items = new List<Item>
             {
-                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="Klapek Kubot", CreateDate=(new DateTime(2017,7,26)) },
-                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="adidas", CreateDate=(new DateTime(2017,7,26)) }
+                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="Klapek Kubot", CreateDate=(new DateTime(2017,7,26)),Price=15 },
+                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="adidas", CreateDate=(new DateTime(2017,7,26)),Price=20 }
             };
 
             items.ForEach(c => context.Items.Add(c));

@@ -3,7 +3,19 @@ body {
     background-color: #eeeeee;
 }
 
+.logo {
+    display: inline-block;
+}
 
+.no-padding {
+  padding:0 0 0 0;
+}
+
+.button-margin
+{
+   padding: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
+}
 @media (min-width: 768px) {
     .vertical-center {
         display: inline-block;

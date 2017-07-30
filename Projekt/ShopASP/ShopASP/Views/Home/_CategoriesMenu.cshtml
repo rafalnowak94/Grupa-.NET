@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ShopASP.Models.Category>
+
+@foreach (var category in Model)
+{
+    <li class="list-group-item categoryItem">
+        <a href="@Url.Action("List","Shop",new { categoryname=category.Name })">@category.Name</a>
+    </li>
+}

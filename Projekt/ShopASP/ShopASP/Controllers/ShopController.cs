@@ -30,10 +30,10 @@ namespace ShopASP.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult GenerateCategoriesMenu()
+        public ActionResult GenerateCategoriesMenuFull()
         {
             var categories = db.Categories.ToList();
-            return PartialView("_CategoriesMenu",categories);
+            return PartialView("_CategoriesMenuFull",categories);
         }
 
         public ActionResult ItemsSuggestions(string term)
