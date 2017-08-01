@@ -12,6 +12,7 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/bundles/sheets")
     @RenderSection("Sheets", required: false)
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
 </head>
 <body>
 
@@ -36,9 +37,18 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav"></ul>
+       
+
+                    @Html.Partial("_LoginPartial")
+
+         
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Basket")">Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span id="cart-header-items-count" class="badge">@Html.Action("GetCartItemCount", "Basket")</span></a></li>
+                    <li>
+                        <a href="@Url.Action("Index", "Basket")">
+                            Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            <span id="cart-header-items-count" class="badge">@Html.Action("GetCartItemCount", "Basket")</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-center">
                     <li><a href="@Url.Action("Index", "Home")">Polecamy</a></li>
@@ -56,32 +66,33 @@
         @RenderSection("ContainerImage", required: false)
     </div>
 
-        <div class="container" style="background-color: #f5f5f5;">
-            @RenderBody()
-        </div>
+    <div class="container" style="background-color: #f5f5f5;">
+        @RenderBody()
+    </div>
 
-        <footer>
-            <div class="container" style="background-color:#222222; color:white">
-                <div class="row Myfooter">
-                    <div class="col-md-4 text-center">
-                        <h5>FIRMA</h5>
-                        <a href="@Url.Action("StaticPage", "Home", new { page ="onas"})">O nas</a><br />
-                        <a href="@Url.Action("StaticPage", "Home", new { page ="regulamin"})">Regulamin</a><br />
-                        <a href="@Url.Action("StaticPage", "Home", new { page ="wysylka"})">Wysyłka</a><br />
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <h5>KONTAKT</h5>
-                        <a href="mailto:info@januszshop.pl">info@januszshop.pl </a>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <h5>ADRES</h5>
-                    </div>
+    <footer>
+        <div class="container" style="background-color:#222222; color:white">
+            <div class="row Myfooter">
+                <div class="col-md-4 text-center">
+                    <h5>FIRMA</h5>
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="onas"})">O nas</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="regulamin"})">Regulamin</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="wysylka"})">Wysyłka</a><br />
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>KONTAKT</h5>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@januszshop.pl">info@januszshop.pl </a> <br />
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><a href="mailto:info@januszshop.pl">info@januszshop.pl </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>ADRES</h5>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/scripts")
 
-        @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

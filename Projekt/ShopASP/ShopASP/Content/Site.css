@@ -1,10 +1,24 @@
 ﻿
 body {
     background-color: #eeeeee;
+    font-family: "Lato Black";
+    direction: ltr;
+}
+
+@font-face {
+        font-family: "Lato Black";
+        src: url('698242188-Lato-Bla.eot');
+        src: url('698242188-Lato-Bla.eot?#iefix') format('embedded-opentype'),
+        url('698242188-Lato-Bla.svg#Lato Black') format('svg'),
+        url('698242188-Lato-Bla.woff') format('woff'),
+        url('698242188-Lato-Bla.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
 }
 
 .logo {
     display: inline-block;
+    margin: 10px 0px 10px 0px;
 }
 
 .no-padding {
