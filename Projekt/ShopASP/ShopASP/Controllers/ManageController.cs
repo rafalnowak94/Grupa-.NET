@@ -13,6 +13,8 @@ using System.Web.Mvc;
 using Microsoft.Owin.Security;
 using ShopASP.DAL;
 using System.Data.Entity;
+using System.IO;
+using ShopASP.Infastructure;
 
 namespace ShopASP.Controllers
 {
@@ -185,6 +187,83 @@ namespace ShopASP.Controllers
             return RedirectToAction("OrdersList");
         }
 
+        public ActionResult AddOrEditProduct(int? itemId, bool? confirmSuccess)
+        {
+            Item i;
+            if (itemId.HasValue)
+            {
+                ViewBag.EditMode = true;
+                i = db.Items.Find(itemId);
+            }
+            else
+            {
+                ViewBag.EditMode = false;
+                i = new Item();
+            }
+
+            //result to send to View
+            var result = new AddOrEditProductViewModel();
+            result.Category = db.Categories.ToList();
+            result.Item = i;
+            result.ConfirmSuccess = confirmSuccess;
+            return View(result);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddOrEditProduct(AddOrEditProductViewModel model, HttpPostedFileBase file)
+        {
+
+            if (model.Item.ItemId > 0)
+            {
+                db.Entry(model.Item).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("AddOrEditProduct", new { confirmSuccess = true });
+            }
+
+            else
+            {
+                // Verify that the user selected a file
+                if (file != null && file.ContentLength > 0)
+                {
+                    if (ModelState.IsValid)
+                    { //Generate filename
+
+                        var fileExt = Path.GetExtension(file.FileName);
+
+                        //Generate unique ID for photo
+                        var filename = Guid.NewGuid() + fileExt;
+
+                        var path = Path.Combine(Server.MapPath(AppSettings.ItemPhotoPathtoFolder), filename);
+                        file.SaveAs(path);
+
+                        //Save info to DB
+                        model.Item.ImageFileName = filename;
+                        model.Item.CreateDate = DateTime.Now;
+
+                        db.Entry(model.Item).State = EntityState.Added;
+                        db.SaveChanges();
+
+                        return RedirectToAction("AddOrEditProduct", new { confirmSuccess = true });
+                    }
+                    else
+                    {
+                        var category = db.Categories.ToArray();
+                        model.Category = category;
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Nie wskazano pliku.");
+
+                    //download categories form db for DropDownList
+                    var category = db.Categories.ToArray();
+                    model.Category = category;
+                    return View(model);
+                }
+            }
+        }
     }
 
 

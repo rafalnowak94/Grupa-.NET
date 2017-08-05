@@ -1,0 +1,83 @@
+﻿@model ShopASP.ViewModels.AddOrEditProductViewModel
+
+@{
+    ViewBag.Title = "AddOrEditProduct";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+@section Title
+{
+    Edycja prokuktów
+}
+
+@using (@Html.BeginForm("AddOrEditProduct", "Manage", FormMethod.Post, new { @class = "form-horizontal col-sm-10", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    if (Model.ConfirmSuccess.HasValue && Model.ConfirmSuccess.Value)
+    {
+        <div class="col-md-12 button-margin text-success">
+            Pomyślnie zapisano
+        </div>
+    }
+    <div class="col-md-12 button-margin text-danger">
+        @Html.ValidationSummary()
+    </div>
+    @Html.HiddenFor(o => o.Item.ItemId)
+    @Html.HiddenFor(o => o.Item.CreateDate)
+    @Html.HiddenFor(o => o.Item.ImageFileName)
+
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.Item.Title, "Nazwa:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.Item.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.Item.Title, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+            <div class="form-group form-control-static">
+                @Html.LabelFor(o => o.Item.Description, "Opis:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(o => o.Item.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(o => o.Item.Description, null, new { @class = "help-inline text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group form-control-static">
+                @Html.LabelFor(o => o.Item.Category, "Kategoria:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(o => o.Item.CategoryId, new SelectList(Model.Category, "CategoryId", "Name", Model.Category.First().CategoryId), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group form-control-static">
+                @Html.LabelFor(o => o.Item.Price, "Cena:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(o => o.Item.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(o => o.Item.Price, null, new { @class = "help-inline text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group form-control-static">
+                @Html.LabelFor(o => o.Item.IsBestseller, "Bestseller:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.CheckBoxFor(o => o.Item.IsBestseller, new { @class = "checked" })
+                </div>
+            </div>
+
+    if (ViewBag.EditMode == null || !ViewBag.EditMode)
+    {
+        <div class="form-group form-control-static">
+            <label class="control-label col-sm-2">Wybierz plik:</label>
+            <input class="file" name="file" type="file" />
+        </div>
+    }
+    <div class="col-sm-12">
+        <div class="col-sm-12 text-right button-margin">
+            <button type="submit" class="btn btn-primary btn-md text-right">Zapisz</button>
+        </div>
+    </div>
+
+
+}
+

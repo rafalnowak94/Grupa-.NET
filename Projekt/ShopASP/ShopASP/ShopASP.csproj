@@ -318,6 +318,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\UserData.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddOrEditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\BasketRemoveViewModel.cs" />
@@ -374,6 +375,7 @@
     <Content Include="Views\Manage\OrdersList.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\Manage\EditOrder.cshtml" />
+    <Content Include="Views\Manage\AddOrEditProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -26,7 +26,12 @@
             <hr />
             <a href="@Url.Action("AddToBasket", "Basket", new { id = Model.ItemId})" type="button" class="btn btn-primary top-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Dodaj do koszyka</a>
         </div>
-
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div class="col-md-12 text-right">
+                <a href="@Url.Action("AddOrEditProduct", "Manage", new{itemId = Model.ItemId})" type="button" class="btn btn-primary">Edytuj</a>
+            </div>
+        }
     </div>
 </div>
 <br />
