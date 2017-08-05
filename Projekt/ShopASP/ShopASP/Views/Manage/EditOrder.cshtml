@@ -1,0 +1,29 @@
+﻿@model ShopASP.Models.Order
+
+@{
+    ViewBag.Title = "EditOrder";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+@section Title
+{
+    Edycja zamówienia: @Model.OrderId id
+}
+
+@using (@Html.BeginForm("EditOrder", "Manage", FormMethod.Post, new { @class = "form-horizontal col-sm-10" }))
+{
+    <div class="col-sm-3" >
+        @Html.AntiForgeryToken()
+        @Html.Label("Status wysyłki", new { @for = "sel1" })
+        @Html.HiddenFor(o => o.OrderId)
+        @Html.EnumDropDownListFor(o => o.OrderStatus, new { @class = "form-control", id = "sel1" })
+    </div>
+
+
+            <div class="col-sm-12 text-left">
+                <button type="submit" class="btn btn-primary btn-md button-margin">Zapisz</button>
+            </div>
+
+
+
+}
+

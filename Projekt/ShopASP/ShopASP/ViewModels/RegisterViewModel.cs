@@ -13,6 +13,7 @@ namespace ShopASP.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Hasło jest wymagane!")]
+        [StringLength(100, ErrorMessage = "Hasło musi mieć więcej niż {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }

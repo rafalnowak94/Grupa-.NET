@@ -12,7 +12,7 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/bundles/sheets")
     @RenderSection("Sheets", required: false)
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
@@ -38,11 +38,9 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        
-
                     @Html.Partial("_LoginPartial")
-
-         
-                <ul class="nav navbar-nav navbar-right">
+    
+                <ul class="nav navbar-nav">
                     <li>
                         <a href="@Url.Action("Index", "Basket")">
                             Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
@@ -69,7 +67,6 @@
     <div class="container" style="background-color: #f5f5f5;">
         @RenderBody()
     </div>
-
     <footer>
         <div class="container" style="background-color:#222222; color:white">
             <div class="row Myfooter">

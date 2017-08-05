@@ -13,15 +13,14 @@
     <div class="col-md-10">
 
         <div class="row" style="padding:5px 0 10px 15px">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 @Html.MvcSiteMap().SiteMapPath()
             </div>
-            <div class="col-md-12">
-                <h3>Koszyk</h3>
-            </div>
-
         </div>
-
+        <hr />
+        <div class="col-md-12">
+            <h3>Koszyk</h3>
+        </div>
         @foreach (var CartItem in Model.CartItems)
             {
             <div class="row">
@@ -62,7 +61,7 @@
             @if (Model.TotalPrice > 0)
             {
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <a id="cart-button-checkout" href="@Url.Action("Checkout", "Cart")" type="button" class="btn btn-success button-margin">Zamów</a>
+                    <a id="cart-button-checkout" href="@Url.Action("Checkout", "Basket")" type="button" class="btn btn-success button-margin">Zamów</a>
                 </div>
             }
             <br />

@@ -1,19 +1,18 @@
 ﻿
 body {
     background-color: #eeeeee;
-    font-family: "Lato Black";
+    font-family: 'Lato', sans-serif;
     direction: ltr;
 }
 
-@font-face {
-        font-family: "Lato Black";
-        src: url('698242188-Lato-Bla.eot');
-        src: url('698242188-Lato-Bla.eot?#iefix') format('embedded-opentype'),
-        url('698242188-Lato-Bla.svg#Lato Black') format('svg'),
-        url('698242188-Lato-Bla.woff') format('woff'),
-        url('698242188-Lato-Bla.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+hr {
+    
+ border-top: 1px solid #ccc;
+}
+
+.adress-margin {
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 .logo {
@@ -24,7 +23,15 @@ body {
 .no-padding {
   padding:0 0 0 0;
 }
+.orderInfo-margin
+{
 
+   padding: 0px 30px 5px 30px;
+}
+.orderTable-margin
+{
+   padding: 0 30px 0 30px;
+}
 .button-margin
 {
    padding: 5px 5px 5px 5px;

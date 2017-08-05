@@ -3,7 +3,7 @@
 
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("Logoff", "Account", FormMethod.Post, htmlAttributes: new { id = "logoutForm", @class = "nav navbar-nav" }))
+    using (Html.BeginForm("Logoff", "Account", FormMethod.Post, htmlAttributes: new { id = "logoutForm", @class = "nav navbar-nav navbar-right" }))
     {
         @Html.AntiForgeryToken()
         <li class="dropdown">
@@ -12,6 +12,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li class="list-group-item categoryItem"><a href="@Url.Action("Index", "Manage")">Ustawienia</a></li>
+                <li class="list-group-item categoryItem"><a href="@Url.Action("OrdersList", "Manage")">Zamówienia</a></li>
                 <li class="list-group-item categoryItem"><a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
             </ul>
         </li>
@@ -19,12 +20,12 @@
 }
 else
 {
-    <ul class="nav navbar-nav">
-        <li>
-            @Html.ActionLink("Rejestracja", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
-        </li>
+    <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Zaloguj", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </li>
+        <li>
+            @Html.ActionLink("Rejestracja", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
         </li>
     </ul>
 }

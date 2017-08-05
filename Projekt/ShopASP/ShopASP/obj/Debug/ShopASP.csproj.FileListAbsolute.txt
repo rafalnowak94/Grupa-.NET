@@ -55,7 +55,6 @@ C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\WebActivatorEx.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\MvcSiteMapProvider.WebActivator.xml
-C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.csprojResolveAssemblyReference.cache
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Antlr3.Runtime.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Newtonsoft.Json.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Optimization.dll
@@ -80,3 +79,5 @@ C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Microsoft.Owin.Sec
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\pl\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.csprojResolveAssemblyReference.cache

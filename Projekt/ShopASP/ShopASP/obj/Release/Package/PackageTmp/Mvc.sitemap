@@ -7,6 +7,14 @@
     <mvcSiteMapNode title="Category" controller="Shop" action="List" dynamicNodeProvider="ShopASP.Infastructure.CategoryDynamicPath, ShopASP">
       <mvcSiteMapNode title="Item" controller="Shop" action="Description" dynamicNodeProvider="ShopASP.Infastructure.DescriptionDynamicPath, ShopASP"/>
     </mvcSiteMapNode>
-  </mvcSiteMapNode>
+    <mvcSiteMapNode title="Koszyk" controller="Basket" action="Index">
+      <mvcSiteMapNode title="Dane zamówienia" controller="Cart" action="Checkout" />
+      <mvcSiteMapNode title="Potwierdzenie zamówienia" controller="Cart" action="OrderConfirmation" />
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Konto" controller="Manage" action="Index">
+      <mvcSiteMapNode title="Logowanie" controller="Account" action="Login"/>
+      <mvcSiteMapNode title="Rejestracja" controller="Account" action="Register"/>
+    </mvcSiteMapNode>
 
+  </mvcSiteMapNode>
 </mvcSiteMap>

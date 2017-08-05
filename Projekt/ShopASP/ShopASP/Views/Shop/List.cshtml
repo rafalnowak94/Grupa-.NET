@@ -13,10 +13,11 @@
             <div class="col-md-6">
                 @Html.MvcSiteMap().SiteMapPath()
             </div>
+
             <div class="col-md-6 text-right">
                 <form id="search-form" method="get"
                       class="navbar-form text-right"
-                       style="margin: auto"
+                      style="margin: auto"
                       data-ajax-target="#productlist-section">
                     <div class="input-group add-on">
                         <input class="form-control" placeholder="Szukaj..." name="searchQuery"
@@ -29,6 +30,7 @@
                 </form>
             </div>
         </div>
+        <hr />
         <div class="row">
             @Html.Partial("_ItemsList")
         </div>

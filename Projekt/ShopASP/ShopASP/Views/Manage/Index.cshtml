@@ -1,0 +1,147 @@
+﻿@model ShopASP.ViewModels.ManageCredentialsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+
+@section Title {
+    Ustawienia
+}
+
+@using (@Html.BeginForm("ChangeProfile", "Manage", FormMethod.Post, new { @class = "form-horizontal col-sm-10" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Dane</h4>
+    <hr />
+    if (Model.Message.HasValue)
+    {
+        switch (Model.Message)
+        {
+            case ShopASP.Controllers.ManageController.ManageMessageId.UpdateSuccess:
+                <text> <div class="manage-message text-success col-md-12 button-margin">
+                        Dane zmodyfikowane pomyślnie!
+                    </div></text>
+                break;
+        }
+    }
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.UserData.FirstName, "Imię:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.UserData.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.UserData.FirstName, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.UserData.LastName, "Nazwisko:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.UserData.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.UserData.LastName, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.UserData.Address, "Adres:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.UserData.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.UserData.Address, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.UserData.CodeAndCity, "Kod i miasto:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.UserData.CodeAndCity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.UserData.CodeAndCity, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group form-control-static">
+        @Html.LabelFor(o => o.UserData.PhoneNumber, "Numer telefonu:", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(o => o.UserData.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(o => o.UserData.PhoneNumber, null, new { @class = "help-inline text-danger" })
+        </div>
+    </div>
+
+    <div class="col-sm-12 text-right button-margin">
+        <button type="submit" class="btn btn-primary btn-md text-right">Potwierdź</button>
+    </div>
+
+
+
+}
+
+@using (@Html.BeginForm("ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal col-sm-10" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Zmień hasło</h4>
+    <hr />
+
+        if (Model.Message.HasValue)
+        {
+            @:<div class="col-md-12 button-margin text-danger">
+            switch (Model.Message)
+            {
+                case ShopASP.Controllers.ManageController.ManageMessageId.ChangePasswordSuccess:
+                    <text> <div class="manage-message text-success col-md-12 button-margin">
+                            Hasło zmienione pomyślnie!
+                        </div></text>
+                    break;
+                case ShopASP.Controllers.ManageController.ManageMessageId.Error:
+                    <text> <div class="manage-message text-danger col-md-12 button-margin">
+                            Wystąpił błąd :(
+                        </div>                 </text>
+                    break;
+            }
+            @: </div>
+}
+
+
+        <div class="form-group form-control-static">
+            @Html.LabelFor(o => o.ChangePasswordViewModel.OldPassword, "Stare hasło:", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.PasswordFor(o => o.ChangePasswordViewModel.OldPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.OldPassword, null, new { @class = "help-inline text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group form-control-static">
+            @Html.LabelFor(o => o.ChangePasswordViewModel.NewPassword, "Nowe hasło:", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.PasswordFor(o => o.ChangePasswordViewModel.NewPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.NewPassword, null, new { @class = "help-inline text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group form-control-static">
+            @Html.LabelFor(o => o.ChangePasswordViewModel.ConfirmPassword, "Potwierdź hasło:", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.PasswordFor(o => o.ChangePasswordViewModel.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.ConfirmPassword, null, new { @class = "help-inline text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-12 text-right button-margin">
+            <button type="submit" class="btn btn-primary btn-md text-right">Zmień</button>
+        </div>
+        <div class="col-md-12 button-margin text-danger">
+            @Html.ValidationSummary()
+        </div>
+
+
+
+}
+
+@section Scripts {
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+}

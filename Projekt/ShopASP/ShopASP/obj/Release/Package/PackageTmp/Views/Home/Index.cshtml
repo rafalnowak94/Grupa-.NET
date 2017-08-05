@@ -1,11 +1,9 @@
 ﻿@model ShopASP.ViewModels.HomeViewModel
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "JanuszSHOP";
 }
 
-<div classs="row">
-    <img class="img-responsive" src="../Content/Images/janusz.png" />
-</div>
+
 
 <h2>Nowości</h2>
 <hr />
@@ -27,7 +25,7 @@
                         </h4>
 
                         <div class="addCartButton">
-                            <a href="@Url.Action("AddToCart", "Cart", new { id = newItem.ItemId })" type="button" class="btn btn-default">
+                            <a href="@Url.Action("AddToBasket", "Basket", new { id = newItem.ItemId })" type="button" class="btn btn-default">
                                 Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -39,3 +37,9 @@
 
 
 </div>
+@section ContainerImage {
+    <div class="col-md-12 no-padding">
+        <img class="img-responsive" src="~/Content/Images/janusz.png" />
+    </div>
+
+}

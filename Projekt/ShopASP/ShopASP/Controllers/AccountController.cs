@@ -8,6 +8,7 @@ using ShopASP.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using ShopASP.App_Start;
+using System;
 
 namespace ShopASP.Controllers
 {
@@ -54,19 +55,44 @@ namespace ShopASP.Controllers
         // GET: Account
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUtl = returnUrl;
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            else
-                return RedirectToAction("Index", "Home");
+
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("loginerror", "Zły login lub hasło");
+                    return View(model);
+            }
+
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
         public ActionResult Register()
@@ -81,7 +107,7 @@ namespace ShopASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserData = new UserData() };
+                var user = new ApplicationUser { UserName = model.Email.ToLower(), Email = model.Email.ToLower(), UserData = new UserData() };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -96,8 +122,9 @@ namespace ShopASP.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
+      
             }
-            
+
             return View(model);
 
         }
@@ -106,14 +133,15 @@ namespace ShopASP.Controllers
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError("loginerror", error);
             }
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticatManager.SignOut();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
