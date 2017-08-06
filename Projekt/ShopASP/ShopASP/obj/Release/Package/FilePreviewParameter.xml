@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="05ed3b7c-0ee0-4-231-b9ee" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\rafal\\Desktop\\Grupa\ \.NET\\Projekt\\ShopASP\\ShopASP\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\rafal\\Desktop\\Grupa\ \.NET\\Projekt\\ShopASP\\ShopASP\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ShopContext-Web.config Connection String" description="" value="Data Source=(LocalDb)\v11.0;Initial Catalog=JanuszShopDb;Integrated Security=SSPI; AttachDBFilename=|DataDirectory|\JanuszShopsDb.mdf" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\rafal\\Desktop\\Grupa\ \.NET\\Projekt\\ShopASP\\ShopASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ShopContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,120 @@
+﻿@model ShopASP.ViewModels.CartViewModel
+
+@{
+    ViewBag.Title = "Description";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div class="row" style="margin-top: 30px; margin-bottom:20px">
+    <div class="col-md-2">
+        @Html.Action("GenerateCategoriesMenuFull", "Shop")
+    </div>
+
+    <div class="col-md-10">
+
+        <div class="row" style="padding:5px 0 10px 15px">
+            <div class="col-md-6">
+                @Html.MvcSiteMap().SiteMapPath()
+            </div>
+            <div class="col-md-12">
+                <h3>Koszyk</h3>
+            </div>
+
+        </div>
+
+        @foreach (var CartItem in Model.CartItems)
+            {
+            <div class="row">
+                <div id="cart-item-@CartItem.Item.ItemId" class="col-md-12 col-sm-12 mobile-cart-view">
+                    <div class="col-md-3 col-sm-6 col-xs-12 vertical-center">
+                        <a href="@Url.Action("Description", "Shop", new { id = CartItem.Item.ItemId})">
+                            <img class="img-responsive center-block" src="@Url.ItemPhotoPath(CartItem.Item.ImageFileName)" />
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-5 col-xs-12 vertical-center">
+                        <a href="@Url.Action("Description", "Shop", new { id = CartItem.Item.ItemId})">
+                            @CartItem.Item.Title
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 vertical-center text-center">
+                        Ilosc: <span id="item-quant-@CartItem.Item.ItemId">@CartItem.Quantity</span>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 vertical-center text-center">
+                        @String.Format("{0:0.##}", CartItem.TotalPrice) zł
+                    </div>
+                    <div class="col-md-1 col-sm-12 col-xs-12 vertical-center text-center">
+                        <a href="#" class="remove-item" data-id="@CartItem.Item.ItemId">Usun</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div id="cart-empty-message" class="col-md-12 text-center @if (Model.CartItems != null && Model.CartItems.Count > 0) { <text> hidden </text> } ">
+            <p>Twój koszuk jest pusty</p>
+        </div>
+        <div id="total-price" class="col-md-12 text-right @if (Model.TotalPrice == 0 ) { <text> hidden </text> } ">
+            <h4> Razem: <span id="total-price-value">@String.Format("{0:0.##}", Model.TotalPrice)</span> zł</h4>
+        </div>
+        <div class="row button-margin">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                <a href="" type="button" class="btn btn-primary">Kontynuuj zakupy</a>
+            </div>
+            @if (Model.TotalPrice > 0)
+            {
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                    <a id="cart-button-checkout" href="@Url.Action("Checkout", "Cart")" type="button" class="btn btn-success button-margin">Zamów</a>
+                </div>
+            }
+            <br />
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        $(function () {
+
+            $(".remove-item").click(function () {
+
+                var itemToDelete = $(this).attr("data-id");
+
+                if (itemToDelete != '') {
+
+                    // Send post request with AJAX
+                    $.post("/Basket/RemoveFromBasket", { "itemid": itemToDelete },
+                        function (response) {
+                            // Success
+                            if (response.RemovedItemCount == 0) {
+
+                                $('#cart-item-' + response.RemoveItemId).fadeOut('slow', function () {
+                                    if (response.CartItemsCount == 0) {
+                                        $("#cart-empty-message").removeClass("hidden");
+                                    }
+                                });
+                            } else {
+                                $('#item-quant-' + response.RemoveItemId).text(response.RemovedItemCount);
+                            }
+
+                            if (response.CartItemsCount == 0) {
+                                $('#cart-button-checkout').addClass('hidden');
+                                $('#total-price').addClass('hidden');
+                            }
+
+                            $('#total-price-value').text(response.CartTotal);
+                            $('#cart-header-items-count').text(response.CartItemsCount);
+
+                        });
+
+                    return false;
+                }
+            });
+
+        });
+
+
+
+    </script>
+
+}

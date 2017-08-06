@@ -1,0 +1,38 @@
+﻿@model ShopASP.Models.Item
+
+@{
+    ViewBag.Title = @Model.Title;
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-2">
+        @Html.Action("GenerateCategoriesMenuFull")
+    </div>
+    <div class="col-md-10">
+        <div class="row" style="padding:5px 0 10px 15px">
+            @Html.MvcSiteMap().SiteMapPath()
+        </div>
+        <hr />
+        <div class="col-md-5">
+            <img src="@Url.ItemPhotoPath(Model.ImageFileName)" class="center-block" height="200" width="320">
+        </div>
+        <div class="col-md-4">
+            <h3>@Model.Title</h3>
+            <p> @Model.Description </p>
+        </div>
+        <div class="col-md-3" style="border:1px solid #c3c0c0; padding-bottom:10px">
+            <h3>@String.Format("{0:0.##}", Model.Price)<span>PLN</span></h3>
+            <hr />
+            <a href="@Url.Action("AddToBasket", "Basket", new { id = Model.ItemId})" type="button" class="btn btn-primary top-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Dodaj do koszyka</a>
+        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div class="col-md-12 text-right">
+                <a href="@Url.Action("AddOrEditProduct", "Manage", new{itemId = Model.ItemId})" type="button" class="btn btn-primary">Edytuj</a>
+            </div>
+        }
+    </div>
+</div>
+<br />
+

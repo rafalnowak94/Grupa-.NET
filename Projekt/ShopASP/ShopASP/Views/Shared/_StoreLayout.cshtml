@@ -1,0 +1,97 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/sheets")
+    @RenderSection("Sheets", required: false)
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a href="@Url.Content("~/")">
+                    <img class="logo" src="@Url.Content("~/Content/Images/logo.png")" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-static-top container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Rozwiń nawigację</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       
+                    @Html.Partial("_LoginPartial")
+    
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Basket")">
+                            Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            <span id="cart-header-items-count" class="badge">@Html.Action("GetCartItemCount", "Basket")</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="@Url.Action("Index", "Home")">Polecamy</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produkty<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @Html.Action("GenerateCategoriesMenu", "Home")
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container no-padding" style="background-color: #f5f5f5;">
+        @RenderSection("ContainerImage", required: false)
+    </div>
+
+    <div class="container" style="background-color: #f5f5f5;">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container" style="background-color:#222222; color:#e0e0e0">
+            <div class="row Myfooter">
+                <div class="col-md-4 text-center">
+                    <h5><b>FIRMA</b></h5>
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="onas"})">O nas</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="regulamin"})">Regulamin</a><br />
+                    <a href="@Url.Action("StaticPage", "Home", new { page ="wysylka"})">Wysyłka</a><br />
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5><b>KONTAKT</b></h5>
+                    <span class="glyphicon glyphicon-envelope footer-margin" aria-hidden="true"></span><a class="footer-margin" href="mailto:info@januszshop.pl">info@januszshop.pl </a> <br />
+                    <span class="glyphicon glyphicon-earphone footer-margin" aria-hidden="true"></span><a class="footer-margin" href="tel:123456789">123456789</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5><b>ADRES</b></h5>
+                    Gdańsk<br />
+                    ul. Jakaś tam<br />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/scripts")
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

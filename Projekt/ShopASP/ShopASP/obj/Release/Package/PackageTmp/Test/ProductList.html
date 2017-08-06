@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moja pierwsza aplikacja w Bootstrapie</title>
+    <link rel="stylesheet" type="text/css" href="../Content/bootstrap.css" />
+    <link href="../Content/Site.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+</head>
+<body>
+    <div class="container">
+        <div classs="row">
+            <img class="center-block" src="../Content/Images/logo.png" />
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-static-top container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Rozwiń nawigację</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"></ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Koszyk  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="#">Polecamy</a></li>
+                    <li><a href="#">Produkty</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: #f5f5f5;">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-2">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Kategorie
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+                            <ul class="list-group nav">
+                                <li class="list-group-item categoryItem"><a href="#">a</a></li>
+                                <li class="list-group-item categoryItem"><a href="#">a</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <ol class="breadcrumb">
+                    <li><a href="#">Strona główna</a></li>
+                    <li><a href="#">O nas</a></li>
+                    <li class="active">O autorze</li>
+                </ol>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Content/Images/test.jpg" />
+                        <div class="caption">
+                            <h4 class="pull-right">$94.99</h4>
+                            <h4>
+                                <a href="#">Fifth Product</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Content/Images/test.jpg" />
+                        <div class="caption">
+                            <h4 class="pull-right">$94.99</h4>
+                            <h4>
+                                <a href="#">Fifth Product</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Content/Images/test.jpg" />
+                        <div class="caption">
+                            <h4 class="pull-right">$94.99</h4>
+                            <h4>
+                                <a href="#">Fifth Product</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <footer>
+        <div class="container" style="background-color:#222222; color:white">
+            <div class="row Myfooter">
+                <div class="col-md-4 text-center">
+                    <h5>FIRMA</h5>
+                    <a href="#">O nas</a><br />
+                    <a href="#">Regulamin</a><br />
+                    <a href="#">Wysyłka</a><br />
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>KONTAKT</h5>
+                    <a href="mailto:info@januszshop.pl">info@januszshop.pl </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>ADRES</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+</body>
+</html>

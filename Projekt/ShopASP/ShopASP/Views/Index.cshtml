@@ -1,0 +1,67 @@
+﻿@model ShopASP.ViewModels.CartViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-2" style="border-right: 2px solid #cacaca">
+        @Html.Action("GenerateCategoriesMenu", "Shop")
+    </div>
+    <div class="col-md-10">
+        <div class="row" style="padding:5px 0 10px 15px">
+            <div class="col-md-6 5px 0 10px 15px">
+                @Html.MvcSiteMap().SiteMapPath()
+            </div>
+        </div>
+
+        <h3>Koszyk</h3>
+
+        <div class="row">
+            @foreach (var Cartitem in Model.CartItems)
+            {
+                <div id="item-@Cartitem.Item.ItemId" class="col-md-12 col-sm-12 mobile-cart-view">
+                    <div class="col-md-3 col-sm-6 col-xs-12 vertical-center">
+                        <a href="@Html.Action("Description", "Shop", new { id = Cartitem.Item.ItemId})">
+                            <img class="img-responsive center-block"
+                                 src="@Url.ItemPhotoPath(Cartitem.Item.ImageFileName)" />
+                        </a>
+                    </div>
+                    <div id="cart-list-item" class="col-md-3 col-sm-5 col-xs-12 vertical-center">
+                        <a href="@Html.Action("Description", "Shop", new { id = Cartitem.Item.ItemId})">
+                            @Cartitem.Item.Title
+                        </a>
+                    </div>
+                    <div id="item-quant-@Cartitem.Item.ItemId" class="col-md-2 col-sm-12 col-xs-12 vertical-center text-center">
+                        @Cartitem.Quantity
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 vertical-center text-center">
+                        @String.Format("{0:0:##}", Cartitem.TotalPrice) zł
+                    </div>
+                    <div class="col-md-1 col-sm-12 col-xs-12 vertical-center text-center">
+                        <a class="remove-from-cart" data-id="item-@Cartitem.Item.ItemId" href="#">
+                            Usun
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-12 text-right ">
+            <h4>Razem: <span id="total-price-value">@String.Format("{0:0:##}", Model.TotalPrice)</span> zł</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+            @if (Model.TotalPrice > 0)
+            {
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right ">
+                    <a href="@Url.Action("Checkout", "Cart")" type="button" class="btn btn-success">Zamawiam</a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

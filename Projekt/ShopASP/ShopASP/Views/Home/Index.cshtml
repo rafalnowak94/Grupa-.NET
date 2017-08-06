@@ -1,0 +1,77 @@
+﻿@model ShopASP.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "JanuszSHOP";
+}
+
+
+<h2>Nowości</h2>
+<hr />
+<div class="row">
+    @foreach (var newItem in Model.NewItems)
+    {
+        <div style="position: relative" class="col-sm-4 col-lg-4 col-md-4">
+            <a href="@Url.Action("Description", "Shop", new { id = newItem.ItemId })">
+                <div class="thumbnail">
+                    <div class="itemPhoto">
+                        <div class="newFlag"></div>
+                        <img src="@Url.ItemPhotoPath(newItem.ImageFileName)" class="center-block img-responsive">
+                    </div>
+
+                    <div class="caption">
+                        <h4 class="pull-right">@newItem.Price</h4>
+                        <h4>
+                            @newItem.Title
+                        </h4>
+
+                        <div class="addCartButton">
+                            <a href="@Url.Action("AddToBasket", "Basket", new { id = newItem.ItemId })" type="button" class="btn btn-default">
+                                Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+
+</div>
+
+<h2>Bestseller</h2>
+<hr />
+<div class="row">
+    @foreach (var Bestsellers in Model.Bestsellers)
+    {
+        <div style="position: relative" class="col-sm-4 col-lg-4 col-md-4">
+            <a href="@Url.Action("Description", "Shop", new { id = Bestsellers.ItemId })">
+                <div class="thumbnail">
+                    <div class="itemPhoto">
+                        <div class="bestsellerFlag"></div>
+                        <img src="@Url.ItemPhotoPath(Bestsellers.ImageFileName)" class="center-block img-responsive">
+                    </div>
+
+                    <div class="caption">
+                        <h4 class="pull-right">@Bestsellers.Price</h4>
+                        <h4>
+                            @Bestsellers.Title
+                        </h4>
+
+                        <div class="addCartButton">
+                            <a href="@Url.Action("AddToBasket", "Basket", new { id = Bestsellers.ItemId })" type="button" class="btn btn-default">
+                                Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+
+</div>
+@section ContainerImage {
+    <div id="IndexImage" class="col-md-12 no-padding hidden-xs">
+        <img class="img-responsive" src="~/Content/Images/janusz.png" />
+    </div>
+
+}

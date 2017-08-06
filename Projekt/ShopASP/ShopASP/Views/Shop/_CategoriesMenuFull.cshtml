@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ShopASP.Models.Category>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Kategorie
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+            <ul class="list-group nav">
+                @foreach (var category in Model)
+                {
+                   <li class="list-group-item categoryItem">
+                   <a href="@Url.Action("List", "Shop", new { categoryname=category.Name.ToString() })">@category.Name</a>
+                  </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>

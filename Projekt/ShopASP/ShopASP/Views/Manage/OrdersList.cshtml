@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ShopASP.Models.Order>
+@{
+    ViewBag.Title = "Zamówienia";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+@if (Model.Any())
+{
+    foreach (var order in Model)
+    {
+        <div class="row">
+            <div class="col-md-6 col-xs-6 orderInfo-margin"><b>Zamówienie nr:</b>@order.OrderId</div>
+            <div class="tcol-md-6 col-xs-6 text-right orderInfo-margin"><b>Data:</b>@order.CreateDate.ToString()</div>
+            <div class="col-md-12 orderTable-margin table-responsive">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+
+                    <thead>
+                        <tr>
+                            <th class="col-md-10">Produkt</th>
+                            <th class="col-md-1">Sztuk</th>
+                            <th class="col-md-1">Cena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var orderItem in order.OrderItems)
+                        {
+                            <tr>
+                                <td>@orderItem.Item.Title</td>
+                                <td>@orderItem.Quantity</td>
+                                <td>@orderItem.UnitPrice zł</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-xs-6 orderInfo-margin"><b>Status:</b>@Html.DisplayFor(o => order.OrderStatus)</div>
+            <div class="col-md-6 col-xs-6 orderInfo-margin text-right"><b>Razem: @order.TotalPrice</b></div>
+            <div class="col-md-6 col-xs-6 orderInfo-margin">
+                <b>Adres:</b><p class="adress-margin">@order.FirstName @order.LastName</p>
+                <p class="adress-margin">@order.Address</p>
+                <p class="adress-margin">@order.CodeAndCity</p>
+            </div>
+
+            <div class="col-md-6 col-xs-6 orderInfo-margin text-right"><b>Uwagi:</b><p>@order.Comment</p></div>
+            @if (ViewBag.UserIsAdmin)
+            {
+                <div class="col-md-12 col-xs-12 orderInfo-margin text-right">
+                    <a href="@Url.Action("EditOrder", "Manage", new { orderId=@order.OrderId})" class="btn btn-primary btn-md text-right">Edytuj</a>
+                </div>
+            }
+
+        </div>
+        <hr />
+    }
+
+}
+
+else
+{
+    <div class="col-md-12 text-center">
+        <p>brak zamówień</p>
+    </div>
+}
+

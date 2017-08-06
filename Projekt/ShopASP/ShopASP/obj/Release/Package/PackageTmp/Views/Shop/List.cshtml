@@ -1,0 +1,85 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-2">
+        @Html.Action("GenerateCategoriesMenuFull")
+    </div>
+    <div class="col-md-10">
+        <div class="row" style="padding:5px 0 10px 15px">
+            <div class="col-md-6">
+                @Html.MvcSiteMap().SiteMapPath()
+            </div>
+            <div class="col-md-6 text-right">
+                <form id="search-form" method="get"
+                      class="navbar-form text-right"
+                       style="margin: auto"
+                      data-ajax-target="#productlist-section">
+                    <div class="input-group add-on">
+                        <input class="form-control" placeholder="Szukaj..." name="searchQuery"
+                               id="srch-bar" type="search"
+                               data-autocomplete-source="@Url.Action("ItemsSuggestions")">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            @Html.Partial("_ItemsList")
+        </div>
+    </div>
+</div>
+@section Sheets {
+
+    @Styles.Render("~/bundles/jquery-ui-sheets")
+
+}
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.12.1.js")"></script>
+
+    <script>
+        $(function () {
+
+            var setupAutoComplete = function () {
+                var $input = $(this);
+
+                var options = {
+                    source: $input.attr("data-autocomplete-source"),
+                    select: function (event, ui) {
+                        $input = $(this);
+                        $input.val(ui.item.label);
+                        var $form = $input.parents("form:first");
+                        $form.submit();
+                    }
+                };
+                $input.autocomplete(options);
+            };
+
+            var ajaxSubmit = function () {
+
+                var $form = $(this);
+
+                var settings = {
+                    data: $(this).serialize(),
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method")
+                };
+
+                $.ajax(settings).done(function (result) {
+                    var $targetElement = $($form.data("ajax-target"));
+                    var $newContent = $(result);
+                    $($targetElement).replaceWith($newContent);
+                });
+
+                return false;
+            };
+            $("#srch-bar").each(setupAutoComplete);
+            $("#search-form").submit(ajaxSubmit);
+        });
+    </script>
+}
