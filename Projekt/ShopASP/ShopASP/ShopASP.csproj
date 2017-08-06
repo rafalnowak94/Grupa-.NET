@@ -212,7 +212,10 @@
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\new.png" />
     <Content Include="Content\ItemPhotos\1.jpg" />
-    <Content Include="Content\ItemPhotos\test.jpg" />
+    <Content Include="Content\ItemPhotos\2.jpg" />
+    <Content Include="Content\ItemPhotos\3.jpg" />
+    <Content Include="Content\ItemPhotos\4.jpg" />
+    <Content Include="Content\ItemPhotos\5.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
