@@ -208,9 +208,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\bestseller.png" />
     <Content Include="Content\Images\cart.png" />
+    <Content Include="Content\Images\janusz.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\new.png" />
-    <Content Include="Content\Images\test.jpg" />
     <Content Include="Content\ItemPhotos\1.jpg" />
     <Content Include="Content\ItemPhotos\test.jpg" />
     <Content Include="Content\Site.css" />

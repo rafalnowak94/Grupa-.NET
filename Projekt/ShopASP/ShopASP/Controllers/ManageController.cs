@@ -15,6 +15,7 @@ using ShopASP.DAL;
 using System.Data.Entity;
 using System.IO;
 using ShopASP.Infastructure;
+using System.Drawing;
 
 namespace ShopASP.Controllers
 {
@@ -189,22 +190,21 @@ namespace ShopASP.Controllers
 
         public ActionResult AddOrEditProduct(int? itemId, bool? confirmSuccess)
         {
-            Item i;
+            var result = new AddOrEditProductViewModel();
             if (itemId.HasValue)
             {
                 ViewBag.EditMode = true;
-                i = db.Items.Find(itemId);
+                result.Item = db.Items.Find(itemId);
             }
             else
             {
                 ViewBag.EditMode = false;
-                i = new Item();
+                result.Item = new Item();
             }
 
             //result to send to View
-            var result = new AddOrEditProductViewModel();
+            db.SaveChanges();
             result.Category = db.Categories.ToList();
-            result.Item = i;
             result.ConfirmSuccess = confirmSuccess;
             return View(result);
         }
@@ -213,7 +213,6 @@ namespace ShopASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddOrEditProduct(AddOrEditProductViewModel model, HttpPostedFileBase file)
         {
-
             if (model.Item.ItemId > 0)
             {
                 db.Entry(model.Item).State = EntityState.Modified;
@@ -236,14 +235,12 @@ namespace ShopASP.Controllers
 
                         var path = Path.Combine(Server.MapPath(AppSettings.ItemPhotoPathtoFolder), filename);
                         file.SaveAs(path);
-
+            
                         //Save info to DB
                         model.Item.ImageFileName = filename;
                         model.Item.CreateDate = DateTime.Now;
-
                         db.Entry(model.Item).State = EntityState.Added;
                         db.SaveChanges();
-
                         return RedirectToAction("AddOrEditProduct", new { confirmSuccess = true });
                     }
                     else

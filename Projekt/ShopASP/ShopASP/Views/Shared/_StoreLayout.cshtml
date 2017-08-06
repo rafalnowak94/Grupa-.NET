@@ -68,21 +68,23 @@
         @RenderBody()
     </div>
     <footer>
-        <div class="container" style="background-color:#222222; color:white">
+        <div class="container" style="background-color:#222222; color:#e0e0e0">
             <div class="row Myfooter">
                 <div class="col-md-4 text-center">
-                    <h5>FIRMA</h5>
+                    <h5><b>FIRMA</b></h5>
                     <a href="@Url.Action("StaticPage", "Home", new { page ="onas"})">O nas</a><br />
                     <a href="@Url.Action("StaticPage", "Home", new { page ="regulamin"})">Regulamin</a><br />
                     <a href="@Url.Action("StaticPage", "Home", new { page ="wysylka"})">Wysyłka</a><br />
                 </div>
                 <div class="col-md-4 text-center">
-                    <h5>KONTAKT</h5>
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@januszshop.pl">info@januszshop.pl </a> <br />
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><a href="mailto:info@januszshop.pl">info@januszshop.pl </a>
+                    <h5><b>KONTAKT</b></h5>
+                    <span class="glyphicon glyphicon-envelope footer-margin" aria-hidden="true"></span><a class="footer-margin" href="mailto:info@januszshop.pl">info@januszshop.pl </a> <br />
+                    <span class="glyphicon glyphicon-earphone footer-margin" aria-hidden="true"></span><a class="footer-margin" href="tel:123456789">123456789</a>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h5>ADRES</h5>
+                    <h5><b>ADRES</b></h5>
+                    Gdańsk<br />
+                    ul. Jakaś tam<br />
                 </div>
             </div>
         </div>

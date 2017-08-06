@@ -36,10 +36,16 @@ namespace ShopASP.DAL
 
             var items = new List<Item>
             {
-                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="Klapek Kubot", CreateDate=(new DateTime(2017,7,26)),Price=15 },
-                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza", ImageFileName="1.jpg", IsBestseller=true, Title="adidas", CreateDate=(new DateTime(2017,7,26)),Price=20}
+                new Item() {CategoryId=2, Description="Kubot czyli najlepszy przyjaciel Janusza.", ImageFileName="1.jpg", IsBestseller=true, Title="Klapek Kubot", CreateDate=(new DateTime(2017,7,26)),Price=40 },
+                new Item() {CategoryId=3, Description="Skarpety i sandały to są polskie ideały.", ImageFileName="2.jpg", IsBestseller=true, Title="Sportowe skarepty", CreateDate=(new DateTime(2017,7,28)),Price=15},
+                new Item() {CategoryId=4, Description="Idelana siatka na wczasy, pojemna i wytrzymała.", ImageFileName="3.jpg", IsBestseller=false, Title="Siatka na zakupy i nie tylko", CreateDate=(new DateTime(2017,7,29)),Price=0.99m},
+                new Item() {CategoryId=4, Description="Wąs który podkreśli twoje prawdzie ja.", ImageFileName="4.jpg", IsBestseller=false, Title="Doczepiany wąs", CreateDate=(new DateTime(2017,7,30)),Price=15},
+                new Item() {CategoryId=1, Description="Koszulka", ImageFileName="5.jpg", IsBestseller=false, Title="Koszulka", CreateDate=(new DateTime(2017,7,31)),Price=20}
+
+
+
             };
-   
+
 
             items.ForEach(c => context.Items.Add(c));
             context.SaveChanges();

@@ -15,7 +15,7 @@ namespace ShopASP.Controllers
         {
             var newItems = db.Items.Where(a => !a.IsHidden).OrderByDescending(a => a.CreateDate).Take(3).ToList();
 
-            var bestsellers = db.Items.Where(a => !a.IsHidden && a.IsHidden).OrderBy(g => Guid.NewGuid()).Take(3).ToList();
+            var bestsellers = db.Items.Where(a => !a.IsHidden&&a.IsBestseller).OrderBy(g => Guid.NewGuid()).Take(3).ToList();
 
             var vm = new HomeViewModel()
             {

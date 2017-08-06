@@ -14,7 +14,7 @@
                 <div class="thumbnail">
                     <div class="itemPhoto">
                         <div class="newFlag"></div>
-                        <img class="center-block img-responsive" src="@Url.ItemPhotoPath(newItem.ImageFileName)" />
+                        <img src="@Url.ItemPhotoPath(newItem.ImageFileName)" class="center-block img-responsive">
                     </div>
 
                     <div class="caption">
@@ -25,6 +25,39 @@
 
                         <div class="addCartButton">
                             <a href="@Url.Action("AddToBasket", "Basket", new { id = newItem.ItemId })" type="button" class="btn btn-default">
+                                Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+
+</div>
+
+<h2>Bestseller</h2>
+<hr />
+<div class="row">
+    @foreach (var Bestsellers in Model.Bestsellers)
+    {
+        <div style="position: relative" class="col-sm-4 col-lg-4 col-md-4">
+            <a href="@Url.Action("Description", "Shop", new { id = Bestsellers.ItemId })">
+                <div class="thumbnail">
+                    <div class="itemPhoto">
+                        <div class="bestsellerFlag"></div>
+                        <img src="@Url.ItemPhotoPath(Bestsellers.ImageFileName)" class="center-block img-responsive">
+                    </div>
+
+                    <div class="caption">
+                        <h4 class="pull-right">@Bestsellers.Price</h4>
+                        <h4>
+                            @Bestsellers.Title
+                        </h4>
+
+                        <div class="addCartButton">
+                            <a href="@Url.Action("AddToBasket", "Basket", new { id = Bestsellers.ItemId })" type="button" class="btn btn-default">
                                 Dodaj <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             </a>
                         </div>

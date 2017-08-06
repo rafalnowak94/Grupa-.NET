@@ -1,7 +1,7 @@
 ﻿@model ShopASP.Models.Item
 
 @{
-    ViewBag.Title = "Description";
+    ViewBag.Title = @Model.Title;
     Layout = "~/Views/Shared/_StoreLayout.cshtml";
 }
 
@@ -15,7 +15,7 @@
         </div>
         <hr />
         <div class="col-md-5">
-            <img src="@Url.ItemPhotoPath(Model.ImageFileName)" class="center-block" />
+            <img src="@Url.ItemPhotoPath(Model.ImageFileName)" class="center-block" height="200" width="320">
         </div>
         <div class="col-md-4">
             <h3>@Model.Title</h3>
