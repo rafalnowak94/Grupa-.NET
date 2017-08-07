@@ -31,6 +31,6 @@ Models: database model
 ViewModels: classes using to model binding
 
 ----------------------------------------------------------------------------------------------------------
-Stack Overflow and tutorials were my friends but almost whole code is my. I copied the most code from example MVC app to create 
+Stack Overflow and tutorials were my friends but almost whole code is my. I copied the most code from example ASP MVC app to create 
 login/register options.
 
