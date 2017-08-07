@@ -13,7 +13,5 @@ namespace ShopASP.ViewModels
         public IEnumerable<Category> Category { get; set; }
 
         public bool? ConfirmSuccess { get; set; }
-
-
     }
 }

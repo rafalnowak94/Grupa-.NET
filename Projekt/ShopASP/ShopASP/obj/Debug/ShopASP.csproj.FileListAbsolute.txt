@@ -43,9 +43,6 @@ C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Helpers
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\System.Web.Mvc.xml
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\obj\Debug\ShopASP.pdb
-C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Glimpse.AspNet.dll
-C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Glimpse.Core.dll
-C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\Glimpse.Mvc5.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.SqlServer.dll
 C:\Users\rafal\Desktop\Grupa .NET\Projekt\ShopASP\ShopASP\bin\EntityFramework.xml
