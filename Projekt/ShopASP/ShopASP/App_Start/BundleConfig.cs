@@ -8,6 +8,7 @@ namespace ShopASP.App_Start
 {
     public class BundleConfig
     {
+        //Join js and css files to one
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(

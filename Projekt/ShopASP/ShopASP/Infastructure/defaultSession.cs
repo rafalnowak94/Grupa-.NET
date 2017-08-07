@@ -12,6 +12,7 @@ namespace ShopASP.Infastructure
 
         public defaultSession()
         {
+            //new sesion object
             session = HttpContext.Current.Session;
         }
 
@@ -55,6 +56,7 @@ namespace ShopASP.Infastructure
             }
         }
 
+        //remove session
         public void Remove()
         {
             session.Abandon();

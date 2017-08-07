@@ -19,17 +19,20 @@ namespace ShopASP.Infastructure
             this.session = session;
             this.db = db;
         }
+
         public void AddToCart(int itemid)
         {
+            //get acutal cart session
             var cart = this.GetCart();
 
+            //get items 
             var cartItem = cart.Find(c => c.Item.ItemId== itemid);
 
             if (cartItem != null)
                 cartItem.Quantity++;
             else
             {
-                // Find album and add it to cart
+                // Find item and add it to cart
                 var itemToAdd = db.Items.Where(a => a.ItemId == itemid).SingleOrDefault();
                 if (itemToAdd != null)
                 {

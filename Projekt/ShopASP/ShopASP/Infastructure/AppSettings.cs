@@ -8,6 +8,7 @@ namespace ShopASP.Infastructure
 {
     public class AppSettings
     {
+
         private static string _itemPhotosPath = ConfigurationManager.AppSettings["ItemImagesFolder"];
 
         public static string ItemPhotoPathtoFolder

@@ -23,7 +23,11 @@ namespace ShopASP.Controllers
     public class ManageController : Controller
     {
         private ShopContext db = new ShopContext();
+
+        //Context to manage/create yor account
         private ApplicationUserManager _userManager;
+
+        //Context to signIn 
         private ApplicationSignInManager _signInManager;
         public enum ManageMessageId
         {
@@ -170,14 +174,14 @@ namespace ShopASP.Controllers
 
             return View(userOrders);
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult EditOrder(int orderId)
         {
             Order order = db.Orders.Where(o => o.OrderId == orderId).Single();
 
             return View(order);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditOrder(Order order)
@@ -208,7 +212,7 @@ namespace ShopASP.Controllers
             result.ConfirmSuccess = confirmSuccess;
             return View(result);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddOrEditProduct(AddOrEditProductViewModel model, HttpPostedFileBase file)
@@ -235,7 +239,7 @@ namespace ShopASP.Controllers
 
                         var path = Path.Combine(Server.MapPath(AppSettings.ItemPhotoPathtoFolder), filename);
                         file.SaveAs(path);
-            
+
                         //Save info to DB
                         model.Item.ImageFileName = filename;
                         model.Item.CreateDate = DateTime.Now;

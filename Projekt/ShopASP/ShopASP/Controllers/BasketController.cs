@@ -14,11 +14,13 @@ namespace ShopASP.Controllers
 {
     public class BasketController : Controller
     {
+
         private CartManager cartManager;
 
+        //sesion 
         private ISessionFuncs sessionManager;
 
-         private ShopContext db;
+        private ShopContext db;
 
         private ApplicationUserManager _userManager;
 
@@ -31,6 +33,7 @@ namespace ShopASP.Controllers
         // GET: Basket
         public ActionResult Index()
         {
+
             var cartItems = cartManager.GetCart();
             var cartTotalPrice = cartManager.GetCartTotalPrice();
 

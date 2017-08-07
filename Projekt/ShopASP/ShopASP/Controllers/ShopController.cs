@@ -19,10 +19,10 @@ namespace ShopASP.Controllers
         public ActionResult List(string categoryname, string searchQuery = null)
         {
             var category = db.Categories.Include("Items").Where(g => g.Name.ToLower() == categoryname.ToLower()).Single();
-            var items = category.Items.Where(a=> (searchQuery ==null ||
-                                              a.Title.ToLower().Contains(searchQuery.ToLower()))&&
+            var items = category.Items.Where(a => (searchQuery == null ||
+                                              a.Title.ToLower().Contains(searchQuery.ToLower())) &&
                                               !a.IsHidden);
-            if(Request.IsAjaxRequest())
+            if (Request.IsAjaxRequest())
             {
                 return PartialView("_ItemsList", items);
             }
@@ -33,7 +33,7 @@ namespace ShopASP.Controllers
         public ActionResult GenerateCategoriesMenuFull()
         {
             var categories = db.Categories.ToList();
-            return PartialView("_CategoriesMenuFull",categories);
+            return PartialView("_CategoriesMenuFull", categories);
         }
 
         public ActionResult ItemsSuggestions(string term)
