@@ -1,0 +1,36 @@
+In my project I used:
+
+-Entity Framework(code-first)
+-Bootsrap
+-Jquery/Ajax
+-Bundles - join css and scripts to one file (reducing get)
+-Identity
+-mvcSiteMapProvider (to generate the site map)
+
+FOLDERS AND CONTENT
+Controllers:
+
+AccountController - accounts
+BasketController - cart
+HomeControler - main page
+ManageController - edit account/items information
+ShopController - generate a list of items in current category and a description page
+
+DAL:
+
+- database context (Entity Framework) and Initializer
+
+Infastructure:
+
+ISessionFuncs and defaultSession - session
+CategoryDynamicPath/DescriptionDynamicPath - generate dynamic path for mvcSiteMapProvider
+AppSettings - get value of "ItemImagesFolder" from Web.config
+
+Models: database model
+
+ViewModels: classes using to model binding
+
+----------------------------------------------------------------------------------------------------------
+Stack Overflow and tutorials were my friends but almost whole code is my. I copied the most code from example MVC app to create 
+login/register options.
+
